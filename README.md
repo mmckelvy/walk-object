@@ -1,22 +1,49 @@
-# is-pure-object
-A simple function that checks whether an object is actually a pure object.
+# walk-object
+Walks an object's keys, calling a function when it reaches a leaf node.
 
+## Example
 ```
-const isObject = require('is-pure-object')
+const obj = {
+  fruit: {
+    description: 'apple',
+    color: [
+      {
+        description: 'red',
+        types: [
+          {description: 'fuji'},
+          {description: 'golden'},
+        ],
+        sizes: [
+          {description: 'large'},
+          {description: 'small'}
+        ],
+        regions: [
+          {description: 'WA'},
+          {description: 'OR'},
+        ]
+      }
+    ]
+  }
+}
 
-isObject({a: 1}) // true
-isObject({}) // true
-isObject({a: ['foo']}) // true
+walk(obj, (val) => {
+  console.log(val)
+})
 
-isObject(null) // false
-isObject('foo') // false
-isObject(['foo', 'bar']) // false
-isObject(function() {}) // false
+//
+'apple'
+'red'
+'fuji'
+'golden'
+'large'
+'small'
+'WA'
+'OR'
 ```
 
 ## Installation
 ```
-npm install --save is-pure-object
+npm install --save walk-object
 ```
 
 ## Test

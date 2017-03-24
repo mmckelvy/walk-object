@@ -13,12 +13,10 @@ test('walkObject', function(t) {
             {description: 'fuji'},
             {description: 'golden'},
           ],
-          // Each thought can have multiple alternatives
           sizes: [
             {description: 'large'},
             {description: 'small'}
           ],
-          // Each thought can have multiple action plans
           regions: [
             {description: 'WA'},
             {description: 'OR'},
