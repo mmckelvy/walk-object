@@ -1,18 +1,22 @@
 {
-  "name": "is-pure-object",
+  "name": "walk-object",
   "version": "1.0.0",
-  "description": "A simple object check",
-  "main": "is-object.js",
+  "description": "Walk an object's keys",
+  "main": "walk-object.js",
   "scripts": {
-    "test": "tape test/is-object.test.js"
+    "test": "tape test/walk-object.test.js"
   },
   "keywords": [
-    "object-check",
-    "is-object"
+    "walk object",
+    "recursion",
+    "nodes object"
   ],
   "author": "Mark McKelvy",
   "license": "MIT",
   "devDependencies": {
     "tape": "^4.6.3"
+  },
+  "dependencies": {
+    "is-pure-object": "^1.0.0"
   }
 }
