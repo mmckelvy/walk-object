@@ -1,0 +1,18 @@
+{
+  "name": "is-object",
+  "version": "1.0.0",
+  "description": "A simple object check",
+  "main": "is-object.js",
+  "scripts": {
+    "test": "tape test/is-object.test.js"
+  },
+  "keywords": [
+    "object-check",
+    "is-object"
+  ],
+  "author": "Mark McKelvy",
+  "license": "MIT",
+  "devDependencies": {
+    "tape": "^4.6.3"
+  }
+}
