@@ -1,5 +1,5 @@
 {
-  "name": "is-object",
+  "name": "is-pure-object",
   "version": "1.0.0",
   "description": "A simple object check",
   "main": "is-object.js",
