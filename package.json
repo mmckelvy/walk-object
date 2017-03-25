@@ -1,6 +1,6 @@
 {
   "name": "walk-object",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Walk an object's keys",
   "main": "walk-object.js",
   "scripts": {
