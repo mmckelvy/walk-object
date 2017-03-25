@@ -2,7 +2,7 @@ const isObject = require('is-pure-object')
 
 /**
 * @param {object} root - The object to walk
-* @param {function} fn - A function to call on each node leaf
+* @param {function} fn - A function to call on each leaf node
 */
 module.exports = function walkObject(root, fn) {
   function walk(obj, location = []) {

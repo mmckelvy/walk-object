@@ -1,5 +1,5 @@
 # walk-object
-Walks an object's keys, calling a function when it reaches a leaf node.
+Walks an object's keys, calling a function when a leaf node is reached.
 The function will be passed the leaf node's value and the location (the location will be an array)
 
 ## Example
