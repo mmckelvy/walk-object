@@ -3,6 +3,8 @@ Walks an object's keys, calling a function when it reaches a leaf node.
 
 ## Example
 ```
+const walkObject = require('walk-object')
+
 const obj = {
   fruit: {
     description: 'apple',
@@ -26,7 +28,7 @@ const obj = {
   }
 }
 
-walk(obj, (val) => {
+walkObject(obj, (val) => {
   console.log(val)
 })
 
