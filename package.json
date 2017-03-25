@@ -6,6 +6,10 @@
   "scripts": {
     "test": "tape test/walk-object.test.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:mmckelvy/walk-object.git"
+  },
   "keywords": [
     "walk object",
     "recursion",
