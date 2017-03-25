@@ -5,23 +5,25 @@ const isObject = require('is-pure-object')
 * @param {function} fn - A function to call on each node leaf
 */
 module.exports = function walkObject(root, fn) {
-  function walk(obj) {
+  function walk(obj, location = []) {
     Object.keys(obj).forEach((key) => {
+
       // Value is an array, call walk on each item in the array
       if (Array.isArray(obj[key])) {
-        obj[key].forEach((el) => {
-          walk(el)
+        obj[key].forEach((el, j) => {
+          walk(el, [...location, ...[key], ...[j]])
         })
+
       // Value is an object, walk the keys of the object
       } else if (isObject(obj[key])) {
-        walk(obj[key])
-      // We've reached a leaf node, call fn on the leaf
+        walk(obj[key], [...location, ...[key]])
+
+      // We've reached a leaf node, call fn on the leaf with the location
       } else {
-        fn(obj[key])
+        fn(obj[key], [...location, ...[key]])
       }
     })
   }
 
   walk(root)
 }
-
