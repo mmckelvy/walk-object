@@ -46,7 +46,7 @@ test('walkObject', function(t) {
 
   // Log both values and locations
   const valuesAndLocations = []
-  function logValuesAndLocations(value, location) {
+  const logValuesAndLocations = function(value, location) {
     valuesAndLocations.push({value, location})
   }
 
@@ -54,7 +54,7 @@ test('walkObject', function(t) {
 
   // Log values only
   const values = []
-  function logValues(value) {
+  const logValues = function(value) {
     values.push(value)
   }
 
@@ -152,62 +152,6 @@ test('walkObject', function(t) {
       'Willamette',
     ],
     'Should work with values only'
-  )
-
-  t.end()
-})
-
-test('walkObject', function(t) {
-  const obj = {
-    order: {
-      number: 323,
-      items: [
-        {
-          sku: 8,
-          description: 'shirt'
-        },
-        {
-          sku: 5,
-          description: 'pants'
-        }
-      ]
-    }
-  }
-
-
-  // Don't need to do anything with the leaves
-  function leafFn(value, location) {
-    return
-  }
-
-  const node = {}
-
-  function nodeFn(value, location) {
-    console.log(location)
-    if (value.items) {
-      node.value = value,
-      node.location = location
-    }
-  }
-
-  walkObject(obj, leafFn, nodeFn)
-
-  t.deepEqual(
-    node,
-    {
-      value: [
-        {
-          sku: 8,
-          description: 'shirt'
-        },
-        {
-          sku: 5,
-          description: 'pants'
-        }
-      ],
-      location: ['order', 'items']
-    },
-    'Should get the appropriate node values'
   )
 
   t.end()
