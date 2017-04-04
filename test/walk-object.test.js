@@ -46,11 +46,17 @@ test('walkObject', function(t) {
 
   // Log both values and locations
   const valuesAndLocations = []
+  const keys = []
+
   const logValuesAndLocations = function(value, location) {
     valuesAndLocations.push({value, location})
   }
 
-  walkObject(obj, logValuesAndLocations)
+  function nodeFn(value, key) {
+    keys.push(key)
+  }
+
+  walkObject(obj, logValuesAndLocations, nodeFn)
 
   // Log values only
   const values = []
@@ -152,6 +158,21 @@ test('walkObject', function(t) {
       'Willamette',
     ],
     'Should work with values only'
+  )
+
+  t.deepEqual(
+    keys,
+    [
+      'order',
+      'customer',
+      'items',
+      'regions',
+      'regions',
+      'items',
+      'regions',
+      'regions'
+    ],
+    'Should call the nodeFn on non-leaf nodes'
   )
 
   t.end()
