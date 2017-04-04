@@ -50,12 +50,14 @@ npm install --save walk-object
 walkObject(root, fn, nodeFn)
 ```
 
-Params
+# Params
 `root {object}` -- The root object to walk
+
 `fn {function}` -- A function to call on each leaf node. Function will be called with the leaf node's value and location.
+
 `nodeFn {function}` -- A optional function to call on each non-leaf node. Function will be called with the node's value and the node's key.
 
-Returns
+# Returns
 `undefined`
 
 
