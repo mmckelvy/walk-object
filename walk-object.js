@@ -13,7 +13,7 @@ module.exports = function walkObject(root, fn) {
         obj[key].forEach((el, j) => {
           fn({
             value: el,
-            key,
+            key: `${key}:${j}`,
             location: [...location, ...[key], ...[j]],
             isLeaf: false
           })

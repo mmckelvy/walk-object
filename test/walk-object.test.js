@@ -167,12 +167,12 @@ test('walkObject', function(t) {
     [
       'order',
       'customer',
-      'items',
-      'regions',
-      'regions',
-      'items',
-      'regions',
-      'regions'
+      'items:0',
+      'regions:0',
+      'regions:1',
+      'items:1',
+      'regions:0',
+      'regions:1'
     ],
     'Should call the function on non-leaf nodes'
   )

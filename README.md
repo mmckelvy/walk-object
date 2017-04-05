@@ -1,6 +1,17 @@
 # walk-object
+`function walkObject(root, fn)`
+
 Walks an object's keys, calling a function when a leaf node is reached.
-The function will be passed the leaf node's value and the location (the location will be an array).
+
+param: `{object} root` - The object to walk.
+param: `{function} fn` - Function to call on each node.
+
+The function will be passed an object with the following properties:
+
+`value: {any}` - The value of the current node.
+`key: {string}` - The key for the current node. If node is an element of an array key will be in the format of `key:index`. See walk-object.test.js for an example.
+`location: {array}` - The full location of the current node (see example below).
+`isLeaf: {boolean}` - Whether or not the node is a leaf.
 
 You can also pass an optional function to be called on each non-leaf node.
 
@@ -27,8 +38,8 @@ const obj = {
   },
 }
 
-walkObject(obj, (value, location) => {
-  console.log(value, location)
+walkObject(obj, ({ value, location, isLeaf }) => {
+  if (isLeaf) console.log(value, location
 })
 
 //
@@ -44,22 +55,6 @@ walkObject(obj, (value, location) => {
 ```
 npm install --save walk-object
 ```
-
-## API
-```
-walkObject(root, fn, nodeFn)
-```
-
-# Params
-`root {object}` -- The root object to walk
-
-`fn {function}` -- A function to call on each leaf node. Function will be called with the leaf node's value and location.
-
-`nodeFn {function}` -- A optional function to call on each non-leaf node. Function will be called with the node's value and the node's key.
-
-# Returns
-`undefined`
-
 
 ## Test
 ```
