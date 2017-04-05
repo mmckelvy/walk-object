@@ -46,25 +46,27 @@ test('walkObject', function(t) {
 
   // Log both values and locations
   const valuesAndLocations = []
-  const keys = []
-
-  const logValuesAndLocations = function(value, location) {
-    valuesAndLocations.push({value, location})
+  function logValuesAndLocations({ value, key, location, isLeaf }) {
+    if (isLeaf) valuesAndLocations.push({value, location})
   }
 
-  function nodeFn(value, key) {
-    keys.push(key)
-  }
-
-  walkObject(obj, logValuesAndLocations, nodeFn)
+  walkObject(obj, logValuesAndLocations)
 
   // Log values only
   const values = []
-  const logValues = function(value) {
-    values.push(value)
+  function logValues({ value, isLeaf }) {
+    if (isLeaf) values.push(value)
   }
 
   walkObject(obj, logValues)
+
+  // Log keys of non-leaf nodes only
+  const keys = []
+  function logKeys({ key, isLeaf }) {
+    if (!isLeaf) keys.push(key)
+  }
+
+  walkObject(obj, logKeys)
 
   t.deepEqual(
     valuesAndLocations,
@@ -172,7 +174,7 @@ test('walkObject', function(t) {
       'regions',
       'regions'
     ],
-    'Should call the nodeFn on non-leaf nodes'
+    'Should call the function on non-leaf nodes'
   )
 
   t.end()
