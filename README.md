@@ -17,8 +17,6 @@ The function will be passed an object with the following properties:
 
 `isLeaf: {boolean}` - Whether or not the node is a leaf.
 
-You can also pass an optional function to be called on each non-leaf node.
-
 ## Example
 ```
 const walkObject = require('walk-object')
