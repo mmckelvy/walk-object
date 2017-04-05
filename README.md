@@ -4,6 +4,7 @@
 Walks an object's keys, calling a function when a leaf node is reached.
 
 param: `{object} root` - The object to walk.
+
 param: `{function} fn` - Function to call on each node.
 
 The function will be passed an object with the following properties:
