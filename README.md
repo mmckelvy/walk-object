@@ -123,7 +123,7 @@ The function will be passed an object with the following properties:
 
 `key: {string}` - The key for the current node. If node is an element of an array key will be in the format of `key:index`. See walk-object.test.js for an example.
 
-`location: {array}` - The full location of the current node (see example below).
+`location: {array}` - The full location of the current node (see examples above).
 
 `isLeaf: {boolean}` - Whether or not the node is a leaf.
 
