@@ -2,9 +2,9 @@
   "name": "walk-object",
   "version": "3.0.1",
   "description": "Walk an object's keys",
-  "main": "walk-object.js",
+  "main": "index.js",
   "scripts": {
-    "test": "tape test/walk-object.test.js"
+    "test": "tape test/*"
   },
   "repository": {
     "type": "git",
@@ -13,7 +13,8 @@
   "keywords": [
     "walk object",
     "recursion",
-    "nodes object"
+    "nodes object",
+    "async walk"
   ],
   "author": "Mark McKelvy",
   "license": "MIT",
