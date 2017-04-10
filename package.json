@@ -4,7 +4,7 @@
   "description": "Walk an object's keys",
   "main": "walk-object.js",
   "scripts": {
-    "test": "tape test/walk-object.test.js"
+    "test": "tape test/*"
   },
   "repository": {
     "type": "git",
@@ -21,6 +21,7 @@
     "tape": "^4.6.3"
   },
   "dependencies": {
+    "blue-tape": "^1.0.0",
     "is-pure-object": "^1.0.0"
   }
 }

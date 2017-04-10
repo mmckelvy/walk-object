@@ -1,20 +1,19 @@
 const isObject = require('is-pure-object')
 
 module.exports = async function walkObjectAsync(root, fn) {
-  function walk(obj, location = []) {
+  async function walk(obj, location = []) {
     const keys = Object.keys(obj)
 
     for (let key of keys) {
       if (Array.isArray(obj[key])) {
-        for (let [ el, index ] of obj[key].entries()) {
+        for (let [ index, el ] of obj[key].entries()) {
           await fn({
             value: el,
             key: `${key}:${index}`,
             location: [...location, ...[key], ...[index]],
             isLeaf: false
           })
-
-          walk(el, [...location, ...[key], ...[index]])
+          await walk(el, [...location, ...[key], ...[index]])
         }
       } else if (isObject(obj[key])) {
         await fn({
@@ -23,7 +22,7 @@ module.exports = async function walkObjectAsync(root, fn) {
           location: [...location, ...[key]],
           isLeaf: false
         })
-        walk(obj[key], [...location, ...[key]])
+        await walk(obj[key], [...location, ...[key]])
       } else {
         await fn({
           value: obj[key],
@@ -35,5 +34,5 @@ module.exports = async function walkObjectAsync(root, fn) {
     }
   }
 
-  walk(root)
+  return await walk(root)
 }
