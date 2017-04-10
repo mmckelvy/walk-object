@@ -77,6 +77,7 @@ async function logValues({ value, location, isLeaf }) {
 walkObjectAsync(obj, logValues)
 
 console.log(vals)
+
 //
 [
   {
