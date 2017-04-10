@@ -1,5 +1,5 @@
 # walk-object
-Walks an object's keys, calling a function when a leaf node is reached. Walk can be performed synchronously or asynchronously.
+Walks an object's keys, calling a function when each node is reached. Walk can be performed synchronously or asynchronously.
 
 ## Synchronous example
 ```
