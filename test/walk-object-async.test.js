@@ -1,7 +1,6 @@
 const test = require('tape')
 
-const walkObjectAsync = require('../walk-object-async')
-const walkObject = require('../walk-object')
+const { walkObject, walkObjectAsync } = require('../index')
 
 test('walkObjectAsync', async function(t) {
   const obj = {
@@ -31,7 +30,7 @@ test('walkObjectAsync', async function(t) {
       setTimeout(() => {
         asyncVals.push({value, location, key, isLeaf})
         resolve()
-      }, 500)
+      }, 250)
     })
   }
 
