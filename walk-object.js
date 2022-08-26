@@ -6,6 +6,10 @@ const isObject = require('is-pure-object')
 */
 module.exports = function walkObject(root, fn) {
   function walk(obj, location = []) {
+    if (obj == null) {
+      // skip null and undefined
+      return
+    }
     Object.keys(obj).forEach((key) => {
 
       // Value is an array, call walk on each item in the array
